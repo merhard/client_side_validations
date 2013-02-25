@@ -27,6 +27,8 @@ module ClientSideValidations::ActionView::Helpers
       form = super(record, *(args << options), &block)
       options[:id] = html_id if html_id
 
+      process_validators options
+
       builder = instantiate_builder(object_name, object, options)
       script = client_side_form_settings(object, options, builder)
 
@@ -55,13 +57,13 @@ module ClientSideValidations::ActionView::Helpers
 
     def fields_for(record_or_name_or_array, record_object = nil, options = {}, &block)
       output = super
-      build_bound_validators(options)
+      process_validators options
       output
     end
 
     private
 
-    def build_bound_validators(options)
+    def process_validators(options)
       if @validators
         options[:validators].each do |key, value|
           if @validators.key?(key)

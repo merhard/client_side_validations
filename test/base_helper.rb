@@ -1,9 +1,7 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'test/unit'
-if RUBY_VERSION >= '1.9.3'
-  require 'debugger'
-end
+require 'debugger'
 require 'mocha/setup'
 require 'rails'
 require 'client_side_validations/config'

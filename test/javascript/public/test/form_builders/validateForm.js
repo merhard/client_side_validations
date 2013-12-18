@@ -47,7 +47,7 @@ asyncTest('Validate form with valid form', 1, function() {
   setTimeout(function() {
     start();
     ok($('iframe').contents().find('p:contains("Form submitted")')[0]);
-  }, 60);
+  }, 200);
 });
 
 asyncTest('Validate form with an input changed to false', 1, function() {
@@ -60,7 +60,7 @@ asyncTest('Validate form with an input changed to false', 1, function() {
   setTimeout(function() {
     start();
     ok($('iframe').contents().find('p:contains("Form submitted")')[0]);
-  }, 60);
+  }, 200);
 });
 
 asyncTest('Ensure ajax:beforeSend is not from a bubbled event', 1, function() {
@@ -159,5 +159,5 @@ asyncTest('Decorative (without name) inputs aren\'t validated', 1, function() {
   setTimeout(function() {
     start();
     ok($('iframe').contents().find('p:contains("Form submitted")')[0]);
-  }, 60);
+  }, 200);
 });
